@@ -12,12 +12,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        //Valida se o e-mail e password vindo do $request são strings
-        //Isso já é uma facade do Laravel, facilitando a validação dos campos
+        /*Valida se o e-mail e password vindo do $request são strings
+        *Isso já é uma facade do Laravel, facilitando a validação dos campos
+        */
         $this->validateLogin($request);
 
-        //Pega somente e-mail e password para validação
-        //Evita que o usuário passe mais informações no payload
+        /*Pega somente e-mail e password para validação
+        *Evita que o usuário passe mais informações no payload
+        */
         $credentials = $this->credentials($request);
 
         $token = \JWTAuth::attempt($credentials);
@@ -36,5 +38,11 @@ class AuthController extends Controller
     {
         \Auth::guard('api')->logout();
         return response()->json([], 204);
+    }
+
+    public function refresh()
+    {
+        $token = \Auth::guard('api')->refresh();
+        return ['token' => $token];
     }
 }

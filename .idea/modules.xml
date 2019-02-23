@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/laravel-jwt.iml" filepath="$PROJECT_DIR$/.idea/laravel-jwt.iml" />
+      <module fileurl="file://$USER_HOME$/webcondom/.idea/webcondom.iml" filepath="$USER_HOME$/webcondom/.idea/webcondom.iml" />
     </modules>
   </component>
 </project>
